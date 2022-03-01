@@ -1,0 +1,361 @@
+:root{
+    --color-1:#060818;
+    --color-2:#0e1726;
+    --color-3:#944e11;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--color-1);
+    padding: 20px;
+    font-family: 'Poppins',sans-serif;
+}
+
+ol,ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 90%;
+    background: var(--color-2);
+    padding: 50px;
+    border-radius: 8px;
+    margin: auto;
+    position: relative;
+    
+}
+
+.face{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--color-3);
+    position: relative;
+    margin: auto;
+}
+
+.rostro{
+    width: 200px;
+    height: 205px;
+    border-radius: 50%;
+    background: var(--color-3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    border: 2px solid #341002;
+}
+
+.face .ceja-left,
+.face .ceja-right{
+    width: 25px;
+    height: 21px;
+    border-radius: 50%;
+    border-top: 4px solid #341002;
+    position: absolute;
+    top: 23%;
+    
+    z-index: 100;
+}
+
+.face .ceja-left{
+    left: 20%;
+}
+
+.face .ceja-right{
+    right: 20%;
+}
+
+.face .ojo-left,
+.face .ojo-right{
+    width: 25px;
+    height: 30px;
+    background: #341002;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.face .ojo-left::after,
+.face .ojo-right::after{
+    width: 8px;
+    height:8px;
+    content: '';
+    position: absolute;
+    background: #fff;
+    border-radius: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.face .ojo-left{
+    left: 20%;
+}
+
+.face .ojo-right{
+    right: 20%;
+}
+
+.face .oreja-left,
+.face .oreja-right{
+    width: 60px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--color-3);
+    position: absolute;
+    top: -18px;
+    border: 2px solid #341002;
+    
+}
+.face .oreja-left::after,
+.face .oreja-right::after{
+    content: '';
+    width: 30px;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.face .oreja-left{
+    left: 0;
+    transform: rotate(48deg);
+}
+
+.face .oreja-right{
+    right: 0;
+    transform: rotate(312deg);
+}
+
+.b-n{
+    width: 80px;
+    height: 85px;
+    border-radius: 51% 49% 49% 51% / 71% 74% 26% 29%;
+    position: absolute;
+    background: #fff;
+    z-index: 100;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.b-n .nariz{
+    width: 40px;
+    height: 30px;
+    border-radius: 51% 49% 47% 53% / 30% 30% 70% 70%;
+    background: #341002;
+    top: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.b-n .boca{
+    position: absolute;
+    width: 7px;
+    height: 20px;
+    background: transparent;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.b-n .boca::before{
+    content: '';
+    position: absolute;
+    width: 63px;
+    height: 36px;
+    left: 49%;
+    top: -17px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: transparent;
+    border-bottom: 14px solid #341002;
+}
+
+
+
+
+
+/* ESTADOS **********************************/
+
+.face.triste .ojo-left,
+.face.triste .ojo-right{
+    border-bottom: 9px solid #341002;
+    background: var(--color-3);
+    overflow:auto;
+}
+.face.triste .ojo-left::after,
+.face.triste .ojo-right::after
+{
+   display: none;
+}
+
+
+.face.triste .ceja-left,
+.face.triste .ceja-right{
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid #341002;
+    top: 18%;
+}
+
+.face.triste .ceja-left{
+    transform: rotate(344deg);
+}
+
+.face.triste .ceja-right{
+    transform: rotate(12deg);
+}
+
+.face.triste .b-n .boca::before{
+    width: 51px;
+    height: 24px;
+    top: 11px;
+    border-top: 11px solid #341002;
+    border-bottom: none;
+}
+
+.face.enojado .ceja-right,
+.face.enojado .ceja-left{
+    width: 49px;
+    height: 22px;
+    top: 29%;
+}
+
+.face.enojado .ceja-right {
+    transform: rotate(317deg);
+    right: 17%;
+}
+
+.face.enojado .ceja-left{
+    transform: rotate(42deg);
+    left: 17%;
+} 
+
+.face.enojado .b-n .boca{
+    background: transparent;
+}
+
+.face.enojado .b-n .boca::before{
+    border-top: 6px solid #341002;
+    border-bottom: none;
+    border-left: 6px solid #341002;
+    transform: rotate(20deg);
+    width: 51px;
+    height: 19px;
+    left: -25px;
+    top: 8px;
+}
+
+.face.enojado .b-n .nariz{
+    width: 31px;
+    height: 21px;
+    top: 13px;
+    left: 40%;
+}
+
+
+.face.enojado .ojo-left{
+  border-radius: 0% 100% 0% 100% / 42% 100% 0% 58% ; 
+  
+}
+.face.enojado .ojo-left::after{
+    top: 12px;
+  left: 16px;
+  transform: none; 
+}
+
+.face.enojado .ojo-right{
+    border-radius:  100% 0% 78% 22% / 87% 0% 100% 13%;
+    
+}
+  .face.enojado .ojo-right::after{
+    top: 13px;
+    left: 0px;
+    transform: none;
+}
+
+
+/* estilos radio Button */
+.acciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 80%;
+    margin: auto;
+    z-index: 100;
+    position: relative;
+    margin-top: 40px;
+}
+
+.radio{
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.radio .marca{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: 0;
+    position: absolute;
+    background: transparent;
+    border: 2px solid #fff;
+    transition: all .8s ease;
+}
+
+.radio .marca::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background: var(--color-3);
+    display: none;
+    left: 3px;
+    top: 3px;
+}
+
+.radio input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.radio input:checked ~ .marca{
+    border: 2px solid var(--color-3);
+}
+
+.radio input:checked ~ span{
+    color: var(--color-3);
+}
+
+.radio input:checked ~ .marca::before{
+    display: block;
+}
